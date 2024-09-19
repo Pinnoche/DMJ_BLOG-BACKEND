@@ -4,9 +4,10 @@ const {getBlogs,
     createBlog,
     deleteBlog,
     updateBlog} = require('../controllers/blogcontrollers')
+const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
-
+router.use(requireAuth)
 //get all blogs
 router.get('/', getBlogs)
 
