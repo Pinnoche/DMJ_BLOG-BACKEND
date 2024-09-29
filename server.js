@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose')
 const blogRoutes = require('./routes/blogs')
 const userRoutes = require('./routes/user')
@@ -9,6 +10,10 @@ const userRoutes = require('./routes/user')
 const app = express()
 
 //middleware
+app.use(cors({
+    origin:'http://localhost:3000',
+    Credentials:true
+}));
 app.use(express.json())
 
 //routing

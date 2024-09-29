@@ -42,7 +42,7 @@ const deleteBlog = async (req, res) => {
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)){
-        res.status(404).json({error: "No such Workout"})
+        return res.status(404).json({error: "No such Workout"})
 }
 
 const blog = await Blogs.findOneAndDelete({_id: id})
@@ -56,12 +56,12 @@ res.status(200).json(blog)
 const updateBlog = async (req, res) => {
     const { id } = req.params
     if(!mongoose.Types.ObjectId.isValid(id)){
-        res.status(404).json({error: "No such Workout"})
+        return res.status(404).json({error: "No such Workout"})
 }
 
-const blog = await Blogs.findOneAndUpdate({_id: id}, {
-    ...req.body
-})
+const blog = await Blogs.findOneAndUpdate(id, 
+    { ...req.body }
+)
 if(!blog) {
     return res.status(404).json({error: 'No such workout'})
 }

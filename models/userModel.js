@@ -6,12 +6,12 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({ 
     email: {
-        type: 'String',
+        type: String,
         required: true,
     }, 
     
     password: {
-        type: 'String',
+        type: String,
         required: true,
     }
 }, {timestamps: true});

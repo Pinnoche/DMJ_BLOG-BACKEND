@@ -3,7 +3,7 @@ const {getBlogs,
     getBlog,
     createBlog,
     deleteBlog,
-    updateBlog} = require('../controllers/blogcontrollers')
+    updateBlog} = require('../controllers/blogController')
 const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
